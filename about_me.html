@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sobre Mí | Un Día Más...</title>
+    <meta name="description" content="Información sobre el autor, Diego Ordaz, y sus proyectos personales.">
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="styles.css">
+    <meta property="og:title" content="Sobre Mí | Un Día Más...">
+    <meta property="og:description" content="Conoce a Diego Ordaz, el autor detrás de Un Día Más.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-wrap">
+            <div class="wrap-title-header">
+                <h1 class="title-header">Un Dia Mas...</h1>
+            </div>
+            <div class="wrap-nav-header">
+                <nav class="nav-header">
+                    <ul class="main-menu">
+                        <li class="menu-item"><a href="index.html">Inicio</a></li>
+                        <li class="menu-item"><a href="blog.html">Blog</a></li>
+                        <li class="menu-item"><a href="about_me.html">Sobre mi</a></li>
+                        <li class="menu-item"><a id="nav-main-contact" href="contact.html">Contacto</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="profile-section">
+            <img class="img-perfil" src="https://i.pinimg.com/736x/3b/a7/9c/3ba79c66a9329f698800ed23a48e9564.jpg" alt="Una imagen sobre mí, el autor Diego Ordaz">
+            <h2 style="color: var(--color-primary);">Hola soy Diego</h2>
+            <p>Me gusta hacer muchas cosas, y este es mi pequeño proyecto personal web, ademas
+                me gusta dibujar desde que soy niño, trato de ser youtuber porque ¿quien no quizo una vez en su vida serlo?, 
+                tomar fotos de lindos paisajes me gustan las nubes y estoy aprendiendo a tocar el cuatro
+            </p>
+            <p>Nadie pregunto pero si entras en el blog y te da mas curiosidad sobre mi, te dejo mis redes sociales
+            </p>
+        </section>
+
+        <section class="social-media">
+            <h2 style="text-align: center;">Mis redes sociales</h2>
+            <div class="social-links">
+                <div class="social-icono">
+                    <a href="https://www.youtube.com/channel/UCX4WBuxqYWTQX1T72oglAlg" target="_blank"> <figure>
+                            <img src="\BLOG_undiamas\fotos\channels4_profile.jpg" alt="Foto de perfil de Youtube">
+                            <figcaption>Youtube: ToyLadillao</figcaption>
+                        </figure>
+                    </a>
+                </div>
+                <div class="social-icono">
+                    <a href="https://www.instagram.com/deigo_artist/" target="_blank"> <figure>
+                            <img src="\BLOG_undiamas\fotos\370837494_312836371246983_6158396665589189954_n.jpg" alt="Foto de perfil de Instagram">
+                            <figcaption>Instagram: Deigo-art</figcaption>
+                        </figure>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="year"></span> Un día más. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Script para actualizar el año en el footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

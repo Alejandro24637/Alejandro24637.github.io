@@ -1,0 +1,491 @@
+﻿/*
+ * === PRINCIPIOS DE ARMONÍA APLICADOS ===
+ *
+ * 1. ESCALA TIPOGRÁFICA: Proporción Áurea (Golden Ratio = 1.618)
+ * - Base: 1rem (16px)
+ * - h6: 1.000rem (16px)
+ * - h5: 1.146rem (16 * 1.146 ≈ 18.3px) - Usando una escala menor para sutileza
+ * - h4: 1.333rem (21.3px) - Cuarta Justa
+ * - h3: 1.618rem (25.9px) - Golden Ratio
+ * - h2: 2.618rem (41.9px) - Golden Ratio²
+ * - h1: 4.236rem (67.8px) - Golden Ratio³
+ * * 2. ESPACIADO: Sistema de 8 puntos (Múltiplos de 0.5rem o 8px)
+ * - .5rem (8px), 1rem (16px), 1.5rem (24px), 2rem (32px), 2.5rem (40px), etc.
+ * * 3. UNIDADES: Priorizar 'rem' para escalabilidad y accesibilidad.
+*/
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Helvetica, Arial, sans-serif;
+  color: #333;
+  background: #f2f2f2;
+  font-size: 1rem; /* Base size */
+  line-height: 1.6em; /* Mejor línea de altura para lectura */
+}
+/* * SECCIÓN DE HEADER (Ajustes de espaciado y fuentes)
+*/
+.hero {
+  width: 100%;
+  /* Reducir altura fija para hacerlo más flexible/responsive */
+  height: 12rem; /* 192px (Múltiplo de 8) */
+  background: url("../images/hero-bg.jpg") no-repeat center center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header.main-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+}
+.header-wrap {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem; /* 16px (Múltiplo de 8) */
+  background-color: #bf6969;
+  z-index: 9999;
+}
+.wrap-title-header {
+  display: flex;
+  align-items: center;
+}
+.title-header {
+  font-weight: bold;
+  /* Aplicando escala: ≈ h2 (2.618rem) */
+  font-size: 2.5rem;
+  color: #ffffff;
+}
+.nav-header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.nav-wrap-header {
+  display: flex;
+  flex-basis: 50%;
+}
+ul.main-menu {
+  display: flex;
+  width: 100%;
+  z-index: 99;
+  margin: 0;
+  padding: 0;
+  justify-content: space-between;
+  font-size: 1.125rem; /* Ajustado para ser más armónico con la base */
+}
+ul.main-menu #nav-main-contact {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem; /* Múltiplos de 8 (8px y 16px) */
+  background-color: #ffc300;
+  color: #fff;
+}
+li.menu-item {
+  margin: 0.5rem; /* 8px (Múltiplo de 8) */
+  display: flex;
+}
+li.menu-item a {
+  padding: 0.5rem 1rem; /* Múltiplos de 8 */
+  text-decoration: none;
+  color: #ffffff;
+}
+li.menu-item a:hover {
+  color: #ffc300;
+}
+i.toggle-menu {
+  display: none;
+  background-color: #fff;
+  border: none;
+  z-index: 9999;
+}
+/*
+* SECCIÓN DE INTRODUCCIÓN Y TEXTO GENERAL
+*/
+.intro {
+  text-align: center;
+  margin-top: 2.5rem; /* 40px (Múltiplo de 8) */
+  margin-bottom: 0.5rem; /* 8px (Múltiplo de 8) */
+  line-height: 1.8em; /* Ajustado a escala */
+}
+.frase-hero {
+  /* Aplicando escala: ≈ h2 (2.618rem) */
+  font-size: 2rem;
+  font-weight: bold;
+  margin-top: 3.5rem; /* 56px (Múltiplo de 8) */
+  margin-bottom: 3.5rem; /* 56px (Múltiplo de 8) */
+}
+.barras {
+  padding: 0;
+  margin: 1rem; /* 16px (Múltiplo de 8) */
+  height: 3px;
+  background: #333;
+  background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
+.description {
+  max-width: 50rem; /* 800px (Múltiplo de 8) */
+  margin: 0 auto;
+  padding: 1.5rem; /* 24px (Múltiplo de 8) */
+  font-size: 1.15rem; /* Ajuste sutil para mejor lectura */
+  line-height: 1.5em; /* Ajustado */
+  text-align: center;
+}
+.description p {
+  margin-bottom: 1rem; /* 16px (Múltiplo de 8) */
+  font-size: 1rem; /* Usar base */
+}
+/*
+* SECCIÓN DE POSTS (Noticias principales)
+*/
+.current-posts-title {
+  margin: 0 auto;
+  padding: 1rem 1.5rem; /* Ajustado a escala de 8 */
+  font-size: 1.333rem; /* Aplicando escala: h4 (Cuarta Justa) */
+  line-height: 1.2em;
+  text-align: justify;
+}
+.current-posts {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: auto;
+  gap: 0.5rem; /* 8px (Múltiplo de 8) */
+  margin-bottom: 2.5rem; /* 40px (Múltiplo de 8) */
+  padding: 0 1.5rem; /* Usar padding en lugar de margin-left/right */
+}
+.post-principal {
+  grid-column: 1 / 2;
+  padding: 0;
+  width: 100%;
+  height: auto; /* Usar 'auto' o eliminar, no max-content */
+}
+.post-principal-content {
+  padding: 1.5rem; /* 24px (Múltiplo de 8) */
+  border: 1px solid #ccc;
+  background: #fff;
+  height: auto;
+  border-radius: 0.5rem; /* 8px (Múltiplo de 8) */
+}
+.post-secundario {
+  padding: 0;
+}
+.post-secundario-content {
+  padding: 1rem; /* 16px (Múltiplo de 8) */
+  border: 1px solid #ccc;
+  background: #fff;
+  border-radius: 0.5rem; /* 8px (Múltiplo de 8) */
+}
+.img-principal {
+  width: 100%;
+  /* Reemplazar altura fija por relación de aspecto (aspect-ratio) o max-height */
+  max-height: 32rem; /* 512px (Múltiplo de 8). Usar max-height es mejor que height fijo */
+  height: auto;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+.img-secundario {
+  width: 100%;
+  /* Reemplazar altura fija */
+  height: 10rem; /* 160px (Múltiplo de 8) */
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+/*
+* SECCIÓN DE FOOTER (Ajustes de espaciado)
+*/
+footer {
+  width: 100%;
+  background-color: #bf6969;
+  color: #eaeaea;
+  padding: 2.5rem 1.5rem; /* Múltiplos de 8 (40px y 24px) */
+  margin-top: 2.5rem; /* 40px (Múltiplo de 8) */
+  font-size: 1rem; /* Unificamos a 1rem */
+  line-height: 1.6; /* Consistente con el body */
+}
+footer,
+.container {
+  width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(11.25rem, 1fr)
+  ); /* minmax(180px, 1fr) */
+  gap: 1.5rem 2rem; /* Múltiplos de 8 */
+  align-items: start;
+}
+/*
+* SECCIÓN DE POST/ARTICLE
+*/
+.post {
+  /* top: 110px -> 6.875rem | bottom: 40px -> 2.5rem */
+  margin: 6.875rem auto 2.5rem;
+  padding: 0 1rem; /* 16px (Múltiplo de 8) */
+  color: #333;
+}
+/* Header inside article */
+.post-header {
+  margin-bottom: 0.5rem; /* 8px (Múltiplo de 8) */
+}
+.post-title {
+  /* Aplicando escala: h3 (1.618rem) */
+  font-size: 2rem;
+  font-weight: 700;
+  color: #bf6969;
+  margin: 0 0 1rem 0; /* 16px (Múltiplo de 8) */
+  line-height: 1.2;
+}
+/* Meta row: author, date, reading time, category */
+.post-meta {
+  gap: 0.5rem 1rem; /* Múltiplos de 8 */
+  font-size: 0.9375rem; /* 15px */
+  color: #666;
+  margin-bottom: 1rem; /* 16px (Múltiplo de 8) */
+}
+.post-meta a {
+  color: #bf6969;
+  text-decoration: none;
+}
+.post-meta a:hover {
+  color: #ffc300;
+  text-decoration: underline;
+}
+/* Author block */
+.author {
+  gap: 0.5rem;
+}
+.author-avatar {
+  /* Aumentar ligeramente el tamaño para mejor impacto visual */
+  width: 3rem; /* 48px (Múltiplo de 8) */
+  height: 3rem; /* 48px (Múltiplo de 8) */
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #ccc;
+  display: block;
+}
+/* Post hero image and caption */
+.post-hero {
+  margin-top: 1rem; /* 16px (Múltiplo de 8) */
+  margin-bottom: 1.5rem; /* 24px (Múltiplo de 8) */
+}
+.post-hero img {
+  width: 100%;
+  /* Reemplazar altura fija por relación de aspecto (aspect-ratio) */
+  height: auto;
+  aspect-ratio: 16 / 9; /* Excelente relación de aspecto para imágenes */
+  max-height: 32rem; /* 512px */
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+  display: block;
+  background: #f2f2f2;
+}
+.hero-caption {
+  margin-top: 0.5rem; /* 8px (Múltiplo de 8) */
+  font-size: 0.875rem; /* 14px */
+  color: #777;
+  text-align: center;
+}
+/* Article body card */
+.post-content {
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 1.5rem; /* 24px (Múltiplo de 8) */
+  border-radius: 0.5rem;
+  line-height: 1.6em; /* Consistente */
+  color: #333;
+  font-size: 1rem;
+}
+/* Lead paragraph */
+.post-content .lead {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0; /* 16px (Múltiplo de 8) */
+  color: #333;
+}
+/* Headings */
+.post-content h1 {
+  /* Aplicando escala: h2 (2.618rem) */
+  font-size: 2.618rem;
+  margin: 1.5rem 0 1rem 0; /* Múltiplos de 8 */
+  line-height: 1.2;
+}
+.post-content h2 {
+  /* Aplicando escala: h3 (1.618rem) */
+  font-size: 1.618rem;
+  color: #bf6969;
+  margin: 1.25rem 0 0.5rem 0; /* Múltiplos de 8 */
+  line-height: 1.2;
+}
+.post-content h3 {
+  /* Aplicando escala: h4 (1.333rem) */
+  font-size: 1.333rem;
+  color: #a94f4f;
+  margin: 1rem 0 0.5rem 0; /* Múltiplos de 8 */
+  line-height: 1.2;
+}
+/* Paragraphs and lists */
+.post-content p {
+  margin: 0 0 1rem 0;
+  font-size: 1rem;
+}
+.post-content ul,
+.post-content ol {
+  margin: 0 0 1rem 2rem; /* Ajustado para 32px (Múltiplo de 8) */
+  padding: 0;
+}
+.post-content li {
+  margin: 0.5rem 0; /* 8px (Múltiplo de 8) */
+}
+/* Inline code and code blocks */
+.post-content pre {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin: 0 0 1rem 0;
+}
+.post-content code {
+  padding: 0.25rem 0.5rem; /* Múltiplos de 8 */
+  border-radius: 0.25rem;
+  font-size: 0.95em;
+}
+/* Reading time and category small styling */
+.reading-time,
+.post-category {
+  color: #777;
+  font-size: 0.9375rem; /* 15px, consistente con meta */
+}
+/* Small utilities */
+.post-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+}
+/* Estilos del sobre mi */
+.img-perfil {
+  width: 15rem; /* 240px (Múltiplo de 8) */
+  height: auto;
+  border-radius: 10rem;
+  margin-bottom: 1rem; /* 16px (Múltiplo de 8) */
+}
+.social-media {
+  max-width: 50rem; /* 800px (Múltiplo de 8) */
+  margin: 0 auto;
+  padding: 1.5rem; /* 24px (Múltiplo de 8) */
+  font-size: 1.15rem; /* Ajuste sutil para mejor lectura */
+  line-height: 1.5em; /* Ajustado */
+  text-align: center;
+}
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem; /* 24px (Múltiplo de 8) */
+}
+/* enlace para los post */
+.link-post-mini {
+  text-decoration: none;
+  color: inherit;
+}
+/* Estilos para el formulario de contacto (adaptados al estilo de la página) */
+.contact-form-wrap {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 22px;
+}
+.contact-form {
+  background: #fff;
+  padding: 18px;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  font-family: inherit;
+  color: #222;
+  display: grid;
+  gap: 14px;
+}
+.contact-form .row {
+  display: flex;
+  gap: 12px;
+}
+.contact-form label {
+  display: block;
+  font-size: 0.95rem;
+  color: #333;
+}
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  margin-top: 6px;
+  border: 1px solid #e3e3e3;
+  border-radius: 8px;
+  background: #fafafa;
+  font-size: 0.95rem;
+  box-sizing: border-box;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.contact-form input:focus,
+.contact-form textarea:focus,
+.contact-form select:focus {
+  outline: none;
+  border-color: #9bb8ff;
+  box-shadow: 0 2px 8px rgba(30, 100, 220, 0.08);
+}
+.contact-form textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+.form-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.btn-primary {
+  background: linear-gradient(180deg, #1e6ef7, #165ad6);
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 6px 14px rgba(22, 90, 214, 0.12);
+}
+.btn-primary:hover {
+  opacity: 0.96;
+  transform: translateY(-1px);
+}
+.note {
+  font-size: 0.85rem;
+  color: #666;
+  margin: 4px 0 0;
+}
+/* Responsive */
+@media (max-width: 700px) {
+  .contact-form .row {
+    flex-direction: column;
+  }
+}
+/* Responsive tweaks */
+@media (max-width: 48rem) {
+  /* 768px -> 48rem */
+  .post {
+    margin: 6rem 0.5rem 2rem; /* Ajustado a escala de 8 */
+  }
+  .post-hero img {
+    height: auto;
+    aspect-ratio: 16 / 9; /* Usamos la misma proporción para consistencia */
+    max-height: 16rem; /* 256px (Múltiplo de 8) */
+  }
+  .post-title {
+    font-size: 1.5rem; /* Ajuste responsive fuera de la escala armónica principal */
+  }
+  .author-avatar {
+    width: 2.5rem; /* 40px (Múltiplo de 8) */
+    height: 2.5rem;
+  }
+  .current-posts {
+    grid-template-columns: 1fr; /* Columna única en móviles */
+    padding: 0 1rem;
+  }
+  .img-principal {
+    max-height: 18rem; /* 288px (Múltiplo de 8) */
+  }
+}

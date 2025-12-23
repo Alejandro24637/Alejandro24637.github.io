@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contacto | Un Día Más...</title>
+    <meta name="description" content="Formulario de contacto para 'Un día más' para servicios o charlas.">
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="styles.css">
+    <meta property="og:title" content="Contacto | Un Día Más...">
+    <meta property="og:description" content="Formulario de contacto para 'Un día más'.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-wrap">
+            <div class="wrap-title-header">
+                <h1 class="title-header">Un Dia Mas...</h1>
+            </div>
+            <div class="wrap-nav-header">
+                <nav class="nav-header">
+                    <ul class="main-menu">
+                        <li class="menu-item"><a href="index.html">Inicio</a></li>
+                        <li class="menu-item"><a href="blog.html">Blog</a></li>
+                        <li class="menu-item"><a href="about_me.html">Sobre mi</a></li>
+                        <li class="menu-item"><a id="nav-main-contact" href="contact.html">Contacto</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="contact-section">
+            <header class="description">
+                <h2 style="color: var(--color-primary);">Quieres Contactarme?</h2>
+                <p>Si quieres comunicarte conmigo, puedes hacerlo a traves de este formulario
+                    , ya sea porque quieres solicitar alguno de mis servicios(creacion de paginas, ilustracion, edicion, etc),
+                    o si simplemente quieres hablar paja o contarme alguna anecdota, se los dejo por aqui abajo
+                </p>
+            </header>
+
+            <section class="formulario">
+                <form id="contact-form" class="contact-form" onsubmit="openGmail(event)" novalidate>
+                    <div class="row">
+                        <label>
+                            Tu nombre
+                            <input id="sender-name" name="name" type="text" placeholder="Ej: Diego" required>
+                        </label>
+                        <label>
+                            Tu correo
+                            <input id="sender-email" name="email" type="email" placeholder="tu@ejemplo.com" required>
+                        </label>
+                    </div>
+
+                    <label>
+                        Asunto
+                        <select id="subject" name="subject" required>
+                            <option value="Charlar">Charlar</option>
+                            <option value="Creacion de sitio web">Creación de sitio web</option>
+                            <option value="Ilustracion">Ilustración</option>
+                            <option value="Edicion">Edición</option>
+                            <option value="Otro">Otro...</option>
+                        </select>
+                    </label>
+
+                    <label id="other-subject-label" style="display:none;">
+                        Especificar asunto
+                        <input id="other-subject" type="text" placeholder="Escribe el asunto">
+                    </label>
+
+                    <label>
+                        Mensaje
+                        <textarea id="message" name="message" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                    </label>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">Enviar por Gmail</button>
+                    </div>
+
+                    <p class="note">Al pulsar "Enviar por Gmail" se abrirá la interfaz de Gmail con el mensaje prellenado. No se envía nada desde este sitio sin tu acción.</p>
+                </form>
+
+                <script>
+                const subjectSelect = document.getElementById('subject');
+                const otherLabel = document.getElementById('other-subject-label');
+                
+                // Muestra u oculta el campo "Especificar asunto"
+                subjectSelect.addEventListener('change', () => {
+                    otherLabel.style.display = subjectSelect.value === 'Otro' ? 'block' : 'none';
+                });
+
+                // Función que genera el enlace mailto para Gmail
+                function openGmail(event) {
+                    event.preventDefault();
+                    // Dirección de correo del destinatario (se mantiene la tuya)
+                    const to = 'diegoalejandroordazgil@gmail.com'; 
+                    
+                    const name = document.getElementById('sender-name').value.trim();
+                    const email = document.getElementById('sender-email').value.trim();
+                    const chosen = subjectSelect.value;
+                    const other = document.getElementById('other-subject').value.trim();
+                    
+                    // Define el asunto
+                    const subject = chosen === 'Otro' ? (other || 'Consulta') : chosen; 
+                    
+                    const message = document.getElementById('message').value.trim();
+
+                    if (!name || !email || !message) {
+                        alert('Por favor completa tu nombre, correo y mensaje.');
+                        return;
+                    }
+
+                    const bodyLines = [
+                        `Nombre: ${name}`,
+                        `Correo: ${email}`,
+                        '',
+                        message
+                    ];
+                    const body = encodeURIComponent(bodyLines.join('\n'));
+                    const su = encodeURIComponent(subject);
+
+                    // Construye y abre la URL de Gmail para componer el mensaje
+                    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(to)}&su=${su}&body=${body}`;
+                    window.open(gmailUrl, '_blank');
+                }
+                </script>   
+            </section>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="year"></span> Un día más. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Script para actualizar el año en el footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
